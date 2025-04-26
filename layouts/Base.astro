@@ -1,0 +1,21 @@
+---
+import DefaultHeader from "../components/Header.astro";
+import DefaultFooter from "../components/Footer.astro";
+import Head from "../components/Head.astro";
+
+import "../types.d.ts";
+
+interface Props {
+	frontmatter: Frontmatter
+}
+const { frontmatter } = Astro.props;
+---
+<html lang="en">
+	<Head frontmatter={frontmatter} config={undefined} />
+	
+	<body>
+		<header><slot name="header"><DefaultHeader /></slot></header>
+		<main><slot /></main>
+		<footer><slot name="footer"><DefaultFooter /></slot></footer>
+	</body>
+</html>
