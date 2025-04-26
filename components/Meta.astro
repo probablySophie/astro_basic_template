@@ -1,0 +1,11 @@
+---
+interface Props {
+	name?: string
+	property?: string
+	content?: string
+}
+const { name, property, content } = Astro.props;
+---
+{ content != null &&
+	<meta name={name} property={property} content={content} >	
+}

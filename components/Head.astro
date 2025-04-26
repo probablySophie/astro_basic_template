@@ -1,0 +1,56 @@
+---
+import Meta from "./Meta.astro";
+
+export type Frontmatter = {
+	title?: string,
+	date?: string,
+	author?: string,
+	summary?: string
+}
+export type Config = {
+	favicon?: string
+	baseSiteName?: string
+	webManifest?: string
+}
+
+interface Props {
+	frontmatter?: Frontmatter
+	config?: Config
+}
+const { frontmatter, config } = Astro.props;
+
+function or<T>(item: T | undefined | null, or: T): T
+{ if (item == null) { return or } else { return item } }
+---
+
+<head>
+	{/* Boring default stuff */}
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta name="generator" content={Astro.generator} />
+
+	{/* Sitewide config things that change */}
+	<link rel="icon" type="image/svg+xml" href={or(config?.favicon, "/favicon.svg")} />
+	<Meta property="og:site_name" content={config?.baseSiteName} />
+	{config?.webManifest && <link rel="manifest" href={config.webManifest} /> }
+	
+	{/* Share card info */}
+	{/* https://ogp.me/ */}
+	<meta property="og:image" content=""> {/* This can be for a whole site, but also page specific */}
+	<meta property="og:image:type" content="">
+	<meta property="og:image:width" content="">
+	<meta property="og:image:height" content="">
+	<meta property="og:image:alt" content="">
+	
+	<meta property="og:url" content=""> {/* The Page’s Permenant URL */}
+	<meta property="og:title" content=""> {/* Share card title */}
+	<meta property="og:type" content="">
+	<meta property="og:locale" content="">
+	<meta property="og:description" content=""> {/* One or two sentence description of the page */}
+
+	{/* Page specific things */}
+	<title>{or(frontmatter?.title, "Astro Site")}</title>
+	<Meta name="author" content={frontmatter?.author} />
+	<Meta name="description" content={frontmatter?.summary} />
+</head>
+
