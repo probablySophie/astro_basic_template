@@ -3,15 +3,16 @@ import DefaultHeader from "../components/Header.astro";
 import DefaultFooter from "../components/Footer.astro";
 import Head from "../components/Head.astro";
 
-import "../types.d.ts";
+import {type Frontmatter, type Config} from "../types.ts";
 
 interface Props {
-	frontmatter: Frontmatter
+	frontmatter: Frontmatter,
+	config: Config
 }
-const { frontmatter } = Astro.props;
+const { frontmatter, config } = Astro.props;
 ---
 <html lang="en">
-	<Head frontmatter={frontmatter} config={undefined} />
+	<Head frontmatter={frontmatter} config={config} />
 	
 	<body>
 		<header><slot name="header"><DefaultHeader /></slot></header>
