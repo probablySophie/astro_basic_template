@@ -24,10 +24,16 @@ Add this to your `tsconfig.json`
 
 ```astro
 ---
-import Layout from "path/to/astro_template/layouts/Base.astro"
+import Layout from "@template/layouts/Base.astro";
+import type { Frontmatter, Config } from "@template/types";
+
+const config: Config = {}
+
+interface Props { frontmatter: Frontmatter }
+const { frontmatter } = Astro.props;
 ---
 
-<Layout frontmatter={your_frontmatter}>
+<Layout frontmatter={frontmatter} config={config}>
 	<Fragment slot="header">
 		<!-- Whatever -->
 	</Fragment>
