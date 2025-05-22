@@ -39,6 +39,8 @@ const { frontmatter } = Astro.props;
 	</Fragment>
 
 	<!-- Your main body contents -->
+	<!-- Or a <slot /> if this is also a layout -->
+	<!-- BUT: If you are using this as a layout, you want to define the header & footer here, instead of passing them through from whatever page calls this guy -->
 
 	<Fragment slot="footer">
 		<!-- Whatever -->
@@ -49,3 +51,4 @@ const { frontmatter } = Astro.props;
 ### Useful Friends
 
 * [PicoCSS](https://picocss.com/)  
+
