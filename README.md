@@ -52,3 +52,19 @@ const { frontmatter } = Astro.props;
 
 * [PicoCSS](https://picocss.com/)  
 
+### My Favourites
+
+```bash
+# Swap bunx & bun out for your preferred package manager
+bunx --bun astro add preact
+bun add -D @astrojs/ts-plugin
+bun add -D sass-embedded sass
+bun add @picocss/pico
+```
+
+And I use this in my base layout
+```html
+<style lang="scss" is:global>
+@use "pico"
+</style>
+```
