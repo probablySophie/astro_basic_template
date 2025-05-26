@@ -6,7 +6,8 @@ FOLDERS_TO_MAKE=('src' 'src/components' 'src/layouts' 'src/pages' 'src/styles' '
 
 ASTRO_INTEGRATIONS=('preact' 'sitemap')
 
-DEV_PACKAGES=('@types/bun' 'sass-embedded' 'sass' '@astrojs/ts-plugin')
+DEV_PACKAGES=('sass-embedded' 'sass' '@astrojs/ts-plugin')
+
 # TODO: Can we make this optional?
 PACKAGES=('lucide-preact')
 
@@ -28,6 +29,10 @@ if [[ -d ".astro" ]]; then
 	for item in "${ASTRO_INTEGRATIONS[@]}"; do
 		"$JS_RUNTIME_RUNNER astro add $item --yes";
 	done
+
+	if [[ "$JS_PACKAGE_MANAGER" == "bun" ]]; then
+		bun add -D @types/bun
+	fi
 
 	# TODO: Update tsconfig.json as compileroptions.paths.*
 	
