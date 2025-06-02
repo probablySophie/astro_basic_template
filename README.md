@@ -35,16 +35,29 @@ const { frontmatter } = Astro.props;
 
 <Layout frontmatter={frontmatter} config={config}>
 	<Fragment slot="header">
-		<!-- Whatever -->
+		<!-- Your header here! -->
 	</Fragment>
 
-	<!-- Your main body contents -->
-	<!-- Or a <slot /> if this is also a layout -->
-	<!-- BUT: If you are using this as a layout, you want to define the header & footer here, instead of passing them through from whatever page calls this guy -->
+	<!-- You can replace <slot /> with contents if you don't want to use this as a layout -->
+	<slot />
 
 	<Fragment slot="footer">
-		<!-- Whatever -->
+		<!-- Your footer here! -->
 	</Fragment>
+</Layout>
+```
+
+#### A single boring page
+
+```astro
+---
+import Layout from "@layouts/Base.astro"
+import type { Frontmatter } from "@template/types"
+
+const frontmatter: Frontmatter = {}
+---
+<Layout frontmatter={frontmatter} >
+	<!-- Your content here -->	
 </Layout>
 ```
 
