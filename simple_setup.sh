@@ -19,15 +19,15 @@ if [[ -d ".astro" ]]; then
 	done
 
 	for item in "${DEV_PACKAGES[@]}"; do
-		"$JS_PACKAGE_MANAGER add -D $item";
+		$JS_PACKAGE_MANAGER add -D "$item";
 	done
 
 	for item in "${PACKAGES[@]}"; do
-		"$JS_PACKAGE_MANAGER add $item";
+		$JS_PACKAGE_MANAGER add "$item";
 	done
 
 	for item in "${ASTRO_INTEGRATIONS[@]}"; do
-		"$JS_RUNTIME_RUNNER astro add $item --yes";
+		$JS_RUNTIME_RUNNER astro add "$item" --yes;
 	done
 
 	if [[ "$JS_PACKAGE_MANAGER" == "bun" ]]; then
