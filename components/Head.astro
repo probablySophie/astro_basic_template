@@ -21,6 +21,18 @@ const { frontmatter, config } = Astro.props;
 
 function or<T>(item: T | undefined | null, or: T): T
 { if (item == null) { return or } else { return item } }
+
+const favicon = or(config?.favicon, "/favicon.svg");
+let favicon_type = "";
+if (config != null && config.favicon != null) {
+	switch ( config.favicon.replace(/.*\./, '') )
+	{
+		case 'ico': favicon_type = "image/ico"; break;
+		case 'png': favicon_type = "image/png"; break;
+		case 'svg': favicon_type = "image/svg+xml"; break;
+		default: throw `Unknown file type / media type for favicon ${favicon}`;
+	}
+}
 ---
 
 <head>
@@ -30,7 +42,7 @@ function or<T>(item: T | undefined | null, or: T): T
 	<meta name="generator" content={Astro.generator} />
 
 	{/* Sitewide config things that change */}
-	<link rel="icon" type="image/svg+xml" href={or(config?.favicon, "/favicon.svg")} />
+	<link rel="icon" type={favicon_type} href={favicon} />
 	<Meta property="og:site_name" content={config?.baseSiteName} />
 	{config?.webManifest && <link rel="manifest" href={config.webManifest} /> }
 	
