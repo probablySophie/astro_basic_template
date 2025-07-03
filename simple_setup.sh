@@ -1,6 +1,6 @@
 
 JS_PACKAGE_MANAGER="bun"
-JS_RUNTIME_RUNNER="bunx"
+JS_RUNTIME_RUNNER="bunx --bun"
 
 FOLDERS_TO_MAKE=('src' 'src/components' 'src/layouts' 'src/pages' 'src/styles' 'src/utils')
 
