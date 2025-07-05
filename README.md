@@ -69,6 +69,7 @@ const frontmatter: Frontmatter = {}
 
 ```bash
 # Swap bunx & bun out for your preferred package manager
+bunx create-astro@latest $YOUR_DIR --template minimal
 bunx --bun astro add preact
 bun add -D @astrojs/ts-plugin
 bun add -D sass-embedded sass
