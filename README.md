@@ -79,6 +79,9 @@ bun add @picocss/pico
 And I use this in my base layout
 ```html
 <style lang="scss" is:global>
-@use "@picocss/pico";
+	/* Reference the actual `.scss` file so we can use `with`
+	 * See for more customisation: https://picocss.com/docs/sass
+	 */
+	@use "@picocss/pico/scss/pico";
 </style>
 ```
