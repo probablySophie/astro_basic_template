@@ -1,17 +1,6 @@
 ---
 import Meta from "./Meta.astro";
-
-export type Frontmatter = {
-	title?: string,
-	date?: string,
-	author?: string,
-	summary?: string
-}
-export type Config = {
-	favicon?: string
-	baseSiteName?: string
-	webManifest?: string
-}
+import type { Config, Frontmatter } from "../types";
 
 interface Props {
 	frontmatter?: Frontmatter
