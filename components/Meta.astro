@@ -6,6 +6,7 @@ interface Props {
 }
 const { name, property, content } = Astro.props;
 ---
-{ content != null &&
-	<meta name={name} property={property} content={content} >	
+{ content == null
+	? ""
+	: <meta name={name} property={property} content={content} >	
 }

@@ -42,16 +42,31 @@ if (config != null && config.favicon != null) {
 	<meta property="og:image:width" content="">
 	<meta property="og:image:height" content="">
 	<meta property="og:image:alt" content="">
-	
-	<meta property="og:url" content=""> {/* The Page’s Permenant URL */}
-	<meta property="og:title" content=""> {/* Share card title */}
-	<meta property="og:type" content="">
+
+	{/* The Page’s Permenant URL */}
+	<meta property="og:url" content={frontmatter?.permenant_url}>
+	{ frontmatter?.permenant_url != null && <link rel="canonical" href={frontmatter?.permenant_url}> }
+
+	{/* This specific pages title */}
+	<meta property="og:title" content={frontmatter?.title}> {/* Share card title */}
+	<title>{or(frontmatter?.title, "Astro Site")}</title>
+
+	<Meta property="og:type" content={frontmatter?.contentType}>
+	{/* TODO: More og:type friends https://ogp.me/#types
+    article:published_time - datetime - When the article was first published.
+    article:modified_time - datetime - When the article was last changed.
+    article:expiration_time - datetime - When the article is out of date after.
+    article:author - profile array - Writers of the article.
+    article:section - string - A high-level section name. E.g. Technology
+    article:tag - string array - Tag words associated with this article.
+	*/}
+
 	<meta property="og:locale" content="">
-	<meta property="og:description" content=""> {/* One or two sentence description of the page */}
+	<meta property="og:description" content={frontmatter?.summary}> {/* One or two sentence description of the page */}
+	<Meta name="description" content={frontmatter?.summary} />
 
 	{/* Page specific things */}
-	<title>{or(frontmatter?.title, "Astro Site")}</title>
 	<Meta name="author" content={frontmatter?.author} />
-	<Meta name="description" content={frontmatter?.summary} />
+	<Meta name="article:author" content={frontmatter?.author} />
 </head>
 

@@ -39,6 +39,7 @@ const { frontmatter } = Astro.props;
 	</Fragment>
 
 	<!-- You can replace <slot /> with contents if you don't want to use this as a layout -->
+	<!-- You may want an <article></article> if its a text-content article friend (you can have multiple in a page) or <nav> or <section> -->
 	<slot />
 
 	<Fragment slot="footer">

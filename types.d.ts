@@ -4,6 +4,8 @@ export declare type Frontmatter = {
 	date?: string,
 	author?: string,
 	summary?: string
+	contentType?: "article" | "website" | "book" | "profile"
+	permenant_url?: string
 }
 
 export declare type Config = {
