@@ -8,9 +8,7 @@ Add this to your `tsconfig.json`
 	"compilerOptions": {
 		"paths": {
 			"@template/*": ["path/to/this/folder/*"]
-		},
-		// Or this maybe??
-		"files": ["path/to/this/folder/types.d.ts"]
+		}
 	}
 }
 ```
