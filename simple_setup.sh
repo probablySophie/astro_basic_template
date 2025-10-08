@@ -2,6 +2,15 @@
 JS_PACKAGE_MANAGER="bun"
 JS_RUNTIME_RUNNER="bunx --bun"
 
+if [[ -f "yarn.lock" ]]; then
+	JS_PACKAGE_MANAGER="yarn"
+	JS_RUNTIME_RUNNER="yarn"
+fi
+if [[ -f "bun.lock" ]]; then
+	JS_PACKAGE_MANAGER="bun"
+	JS_RUNTIME_RUNNER="bunx --bun"
+fi
+
 FOLDERS_TO_MAKE=('src/components' 'src/layouts' 'src/pages' 'src/styles' 'src/utils')
 
 # The aliases to add to tsconfig.json
