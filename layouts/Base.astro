@@ -7,16 +7,19 @@ import {type Frontmatter, type Config} from "../types";
 
 interface Props {
 	frontmatter: Frontmatter,
-	config: Config
+	config: Config,
+	main_classes?: string,
+	header_classes?: string,
+	footer_classes?: string
 }
-const { frontmatter, config } = Astro.props;
+const props = Astro.props;
 ---
 <html lang="en">
-	<Head frontmatter={frontmatter} config={config} />
+	<Head frontmatter={props.frontmatter} config={props.config} />
 	
 	<body>
-		<header><slot name="header"><DefaultHeader /></slot></header>
-		<main><slot /></main>
-		<footer><slot name="footer"><DefaultFooter /></slot></footer>
+		<header class={props.header_classes}><slot name="header"><DefaultHeader /></slot></header>
+		<main class={props.main_classes}><slot /></main>
+		<footer class={props.footer_classes}><slot name="footer"><DefaultFooter /></slot></footer>
 	</body>
 </html>
