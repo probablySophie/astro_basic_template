@@ -27,11 +27,11 @@ import type { Frontmatter, Config } from "@template/types";
 
 const config: Config = {}
 
-interface Props { frontmatter: Frontmatter }
-const { frontmatter } = Astro.props;
+interface Props { frontmatter: Frontmatter, main_classes?: string, header_classes?: string, footer_classes?: string }
+const props = Astro.props;
 ---
 
-<Layout frontmatter={frontmatter} config={config}>
+<Layout config={config} {...props}>
 	<Fragment slot="header">
 		<!-- Your header here! -->
 	</Fragment>
