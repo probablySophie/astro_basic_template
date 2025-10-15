@@ -1,0 +1,7 @@
+---
+interface Props {
+	show: boolean
+}
+const { show } = Astro.props;
+---
+{ show && <slot /> }
