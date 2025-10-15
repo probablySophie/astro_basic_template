@@ -8,8 +8,11 @@ interface Props {
 }
 const { frontmatter, config } = Astro.props;
 
-function or<T>(item: T | undefined | null, or: T): T
-{ if (item == null) { return or } else { return item } }
+function or<T>(item: T | undefined | null, or: T, third_option?: T): T
+{ if ( item != null ) { return item }
+  if ( or != null ) { return or }
+  return third_option as T;
+}
 
 const favicon = or(config?.favicon, "/favicon.svg");
 let favicon_type = "";
@@ -49,7 +52,7 @@ if (config != null && config.favicon != null) {
 
 	{/* This specific pages title */}
 	<meta property="og:title" content={frontmatter?.title}> {/* Share card title */}
-	<title>{or(frontmatter?.title, "Astro Site")}</title>
+	<title>{or(frontmatter?.title, config!.baseSiteName!, "Astro Site")}</title>
 
 	<Meta property="og:type" content={frontmatter?.contentType}>
 	{/* TODO: More og:type friends https://ogp.me/#types
