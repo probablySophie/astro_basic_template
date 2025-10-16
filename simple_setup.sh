@@ -11,11 +11,11 @@ if [[ -f "bun.lock" ]]; then
 	JS_RUNTIME_RUNNER="bunx --bun"
 fi
 
-FOLDERS_TO_MAKE=('src/components' 'src/layouts' 'src/pages' 'src/styles' 'src/utils')
+FOLDERS_TO_MAKE=('src/components' 'src/pages' 'src/styles' 'src/utils')
 
 # The aliases to add to tsconfig.json
-PATH_ALIASES=("@components/*" "@layouts/*" "@pages/*" "@styles/*" "@utils/*" "@data/*" "@lib/*" "@scripts/*" "@template/*")
-REAL_PATHS=("src/components/*" "src/layouts/*" "src/pages/*" "src/styles/*" "src/utils/*" "src/data/*" "src/lib/*" "src/scripts/*" "src/utils/astro_basic_template/*")
+PATH_ALIASES=("@components/*" "@pages/*" "@styles/*" "@utils/*" "@data/*" "@lib/*" "@scripts/*" "@template/*")
+REAL_PATHS=("src/components/*" "src/pages/*" "src/styles/*" "src/utils/*" "src/data/*" "src/lib/*" "src/scripts/*" "src/utils/astro_basic_template/*")
 
 ASTRO_INTEGRATIONS=('preact' 'sitemap')
 
