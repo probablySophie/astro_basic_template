@@ -30,6 +30,16 @@ const config: Config = {}
 interface Props { frontmatter: Frontmatter, main_classes?: string, header_classes?: string, footer_classes?: string }
 const props = Astro.props;
 ---
+{/* INFO: Commented out because scss isn't installed by default
+<style lang="scss" is:global>
+	// Reference the actual `.scss` file so we can use `with`
+	// See for more customisation: https://picocss.com/docs/sass
+	//
+	@use "@picocss/pico/scss/pico";
+</style>
+*/}
+
+</style>
 
 <Layout config={config} {...props}>
 	<Fragment slot="header">
