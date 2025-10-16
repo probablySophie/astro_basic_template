@@ -1,0 +1,11 @@
+<script>
+try {
+	let theme = localStorage.getItem("user-set-theme");
+	if ( theme == "light" || theme == "dark" ) {
+		console.log(`Setting user saved theme: ${theme}`);
+		document.body.style.colorScheme = theme;
+		document.documentElement.setAttribute("data-theme", theme);
+	}
+} catch(e) {  }
+</script>
+
