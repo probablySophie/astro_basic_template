@@ -25,12 +25,13 @@ if (config != null && config.favicon != null) {
 		default: throw `Unknown file type / media type for favicon ${favicon}`;
 	}
 }
+// TODO: Go through this friend https://htmlhead.dev/
 ---
 
 <head>
 	{/* Boring default stuff */}
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 
 	{/* Sitewide config things that change */}
