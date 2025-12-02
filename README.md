@@ -39,8 +39,6 @@ const props = Astro.props;
 </style>
 */}
 
-</style>
-
 <Layout config={config} {...props}>
 	<Fragment slot="header">
 		<!-- Your header here! -->
