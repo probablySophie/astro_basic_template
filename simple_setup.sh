@@ -14,8 +14,10 @@ fi
 FOLDERS_TO_MAKE=('src/components' 'src/pages' 'src/styles' 'src/utils')
 
 # The aliases to add to tsconfig.json
-PATH_ALIASES=("@components/*" "@pages/*" "@styles/*" "@utils/*" "@data/*" "@lib/*" "@scripts/*" "@template/*")
-REAL_PATHS=("src/components/*" "src/pages/*" "src/styles/*" "src/utils/*" "src/data/*" "src/lib/*" "src/scripts/*" "src/utils/astro_basic_template/*")
+PATH_ALIASES=("@components/*" "@pages/*" "@styles/*" "@utils/*" "@data/*" "@lib/*" "@scripts/*" "@template/*" "@type/*")
+# type/* instead of types/* because types is a reserved-ish import keyword
+
+REAL_PATHS=("src/components/*" "src/pages/*" "src/styles/*" "src/utils/*" "src/data/*" "src/lib/*" "src/scripts/*" "src/utils/astro_basic_template/*" "src/types/*")
 
 ASTRO_INTEGRATIONS=('preact' 'sitemap')
 
