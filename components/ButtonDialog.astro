@@ -1,0 +1,15 @@
+---
+/** @file A very simple <button></button> <dialog></dialog> setup
+ * Ideally used with scripts/lazy_actions.ts
+ */
+interface Props {
+	id: string,
+	text?: string,
+	closedBy?: "none" | "closerequest" | "any";
+}
+const props = Astro.props;
+---
+<button id={props.id + "_button"} aria-controls={props.id + "_dialog"} data-action="show"><slot name="button" />{ props.text ? props.text : "" }</button>
+<dialog id={props.id + "_dialog"} closed-by={props.closedBy}>
+	<slot />
+</dialog>
