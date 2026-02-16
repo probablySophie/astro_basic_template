@@ -34,6 +34,15 @@ if (config != null && config.favicon != null) {
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
 
+	{/* Stolen wholesale from oat.ink */}
+	{/* Dramatically speeds up light/dark theme preference setting */}
+	<script is:inline>
+		(function() {
+		  var t = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+		  document.documentElement.setAttribute('data-theme', t);
+		})();
+	</script>
+
 	{/* Sitewide config things that change */}
 	<link rel="icon" type={favicon_type} href={favicon} />
 	<Meta property="og:site_name" content={config?.baseSiteName} />
