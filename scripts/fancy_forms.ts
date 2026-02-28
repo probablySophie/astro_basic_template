@@ -32,13 +32,18 @@ document.addEventListener( "click", e => {
 	if ( (e.target as HTMLElement)?.tagName != "BUTTON" ) { return }
 	// Does the button have the class `toggle-inputs`?
 	if ( (e.target as HTMLElement)?.classList.contains("toggle-inputs") != true ) { return }
-	// Are we a form's direct child?
-	if ( (e.target as HTMLElement)?.parentElement?.tagName != "FORM" ) { return }
+
+	// Are we a form's child?
+	let f = (e.target as HTMLElement)?.parentElement as HTMLElement;
+	if ( f == null ) { return }
+	while ( f.tagName != "FORM" ) {
+		if ( f.parentElement == null ) { return }
+		f = f.parentElement;
+	}
 	
 	e.preventDefault();
 	// let b = (e.target as HTMLElement) as HTMLButtonElement;
 
-	let f = (e.target as HTMLElement).parentElement as HTMLFormElement;
 	if ( f.classList.contains( "hide-inputs" ) ) {
 		f.classList.remove( "hide-inputs" );
 		f.classList.add( "show-inputs" );
